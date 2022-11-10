@@ -1,4 +1,4 @@
-package com.ll.exam.ghasample.app.security;
+package main.java.com.ll.exam.ghasample.app.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,9 +13,13 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
+                                .antMatchers("/favicon.ico").permitAll()
+                                .antMatchers("/resource/**").permitAll()
+                                .antMatchers("/gen-file/**").permitAll()
                                 .antMatchers("/actuator/**").permitAll()
                                 .anyRequest().authenticated()
-                );
+                )
+                .formLogin();
 
         return http.build();
     }

@@ -30,6 +30,7 @@ logging:
     com.ll.exam.ghasample.app: debug
     org.hibernate.type.descriptor.sql: trace
 custom:
+  genFileDirPath: c:/temp/ghaSample
   site:
     name: SITE-A
     baseUrl: "http://localhost:8010"
