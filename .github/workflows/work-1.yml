@@ -82,6 +82,7 @@ jobs:
           cache-to: type=gha,mode=max
           deploy:
             name: 쿠버네티스 배포
+            needs: [tag, docker]
             runs-on: ubuntu-latest
             steps:
               - uses: azure/k8s-set-context@v2
@@ -89,4 +90,4 @@ jobs:
                   method: kubeconfig
                   kubeconfig: ${{ secrets.KUBE_CONFIG }}
               - run: |
-                  kubectl get all
+                  kubectl set image deployment.apps/gha-sample-2022-10-26-1-deployment gha-sample-2022-10-26-1=ghcr.io/jhs512/gha-sample-2022-10-26-1:${{ needs.tag.outputs.tag_name }}

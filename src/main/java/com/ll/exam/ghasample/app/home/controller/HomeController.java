@@ -16,6 +16,6 @@ public class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String showMain() {
-        return environment.getProperty("HOSTNAME");
+        return "HOSTNAME : " + environment.getProperty("HOSTNAME");
     }
 }
