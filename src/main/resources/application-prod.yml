@@ -1,4 +1,6 @@
 spring:
+  redis:
+    host: redis-1-service
   datasource:
     url: jdbc:mariadb://${prodDbIp}:3306/ghaSample__prod?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
     username: ${prodDbId}
